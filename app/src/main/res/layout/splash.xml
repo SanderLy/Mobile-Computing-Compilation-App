@@ -1,8 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_image">
+    >
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="38dp"
+        android:id="@+id/imgdarkblue"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/darkblue_circle"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/imgPalette"
+        android:src="@drawable/palette"
+        android:layout_above="@+id/imgdarkblue"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="PALETTE"
+        android:textSize="50dp"
+        android:id="@+id/txtPalette"
+        android:layout_below="@+id/imgdarkblue"
+        android:layout_centerHorizontal="true"
+        android:typeface="sans"
+        android:textIsSelectable="false"
+        android:textColor="#ffffff" />
+
+
+</RelativeLayout>
