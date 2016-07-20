@@ -25,8 +25,6 @@ public class SplashScreen extends Activity{
         txtPalette = (TextView)findViewById(R.id.txtPalette);
         zoom_in = AnimationUtils.loadAnimation(getBaseContext(),R.anim.zoom_in);
         fade_in = AnimationUtils.loadAnimation(getBaseContext(),R.anim.fade_in);
-
-
         Thread timerThread = new Thread(){
             public void run(){
                 try{

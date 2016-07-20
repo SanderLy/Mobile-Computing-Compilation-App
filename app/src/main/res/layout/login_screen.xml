@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#FF132222">
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#2F57A7">
 
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/etEmail"
         android:inputType="textWebEmailAddress"
+        android:theme="@style/MyEditText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
+        android:textColor="#E7E7E7"
+        android:textColorHint="#E7E7E7"
         android:hint="Email Address"/>
 
     <EditText
@@ -21,7 +24,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_alignBottom="@id/etEmail"
+        android:theme="@style/MyEditText"
         android:layout_marginBottom="205dp"
+        android:textColor="#E7E7E7"
+        android:textColorHint="#E7E7E7"
         android:hint="Password" />
 
     <Button
@@ -29,8 +35,10 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/btnLogin"
+        android:theme="@style/MyButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="120dp" />
+        android:layout_marginBottom="135dp"
+        />
 
 </RelativeLayout>

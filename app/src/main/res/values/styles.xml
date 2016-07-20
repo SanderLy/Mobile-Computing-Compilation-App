@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#7BB0A6</item>
+        <item name="colorButtonNormal">#BFE6EC</item>
+    </style>
+
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#BFE6EC</item>
+        <item name="colorControlActivated">#7BB0A6</item>
+    </style>
+
 </resources>
