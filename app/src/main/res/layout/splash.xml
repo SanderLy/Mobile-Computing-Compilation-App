@@ -6,7 +6,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:id="@+id/imgdarkblue"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/darkblue_circle"
@@ -33,8 +33,9 @@
         android:typeface="sans"
         android:textIsSelectable="false"
         android:textColor="#FFFFFF"
-        android:layout_above="@+id/imgdarkblue"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/txtPalette"
+        android:layout_alignLeft="@+id/txtPalette"
+        android:layout_alignStart="@+id/txtPalette" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
