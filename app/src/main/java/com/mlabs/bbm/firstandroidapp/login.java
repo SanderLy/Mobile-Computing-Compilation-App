@@ -1,5 +1,6 @@
 package com.mlabs.bbm.firstandroidapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -30,11 +31,19 @@ public class login extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(Pattern.compile("([a-zA-Z0-9]+_?)+@[a-zA-Z0-9]+\\.com").matcher(etEmail.getText()).matches()){
-                        Toast.makeText(getBaseContext(),"Nice", Toast.LENGTH_SHORT).show();
-                    }
-    /*                Toast.makeText(getBaseContext(),, Toast.LENGTH_SHORT).show();*/
+                        if(!(etPass.length()== 0)){
+                            if(etPass.length()>8){
+                                Intent intent = new Intent(login.this,MainActivity.class );
+                                startActivity(intent);
+                            } else Toast.makeText(getBaseContext(),"Password too short", Toast.LENGTH_SHORT).show();
+                        }else Toast.makeText(getBaseContext(),"Password field is empty", Toast.LENGTH_SHORT).show();
+                    }else Toast.makeText(getBaseContext(),"Invalid Email Address", Toast.LENGTH_SHORT).show();
+
+
+                    /*Toast.makeText(getBaseContext(),, Toast.LENGTH_SHORT).show();*/
                 }
             });
+
         }
 
     }

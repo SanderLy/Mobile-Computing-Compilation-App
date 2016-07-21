@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class SplashScreen extends Activity{
     ImageView imgdarkblue, imgpalette;
     Animation zoom_in,fade_in;
-    TextView txtPalette;
+    TextView txtPalette, txtColour;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -22,6 +22,7 @@ public class SplashScreen extends Activity{
 
         imgdarkblue = (ImageView) findViewById(R.id.imgdarkblue);
         imgpalette = (ImageView)findViewById(R.id.imgPalette);
+        txtColour= (TextView)findViewById(R.id.txtColour);
         txtPalette = (TextView)findViewById(R.id.txtPalette);
         zoom_in = AnimationUtils.loadAnimation(getBaseContext(),R.anim.zoom_in);
         fade_in = AnimationUtils.loadAnimation(getBaseContext(),R.anim.fade_in);
@@ -31,6 +32,7 @@ public class SplashScreen extends Activity{
                     imgdarkblue.startAnimation(zoom_in);
                     zoom_in.cancel();
                     txtPalette.setAnimation(fade_in);
+                    txtColour.setAnimation(fade_in);
                     imgpalette.startAnimation(fade_in);
                     sleep(2000);
                 }
