@@ -35,6 +35,7 @@ public class login extends AppCompatActivity {
                             if(etPass.length()>8){
                                 Intent intent = new Intent(login.this,MainActivity.class );
                                 startActivity(intent);
+                                //for disposing
                                 finish();
                             } else Toast.makeText(getBaseContext(),"Password too short", Toast.LENGTH_SHORT).show();
                         }else Toast.makeText(getBaseContext(),"Password field is empty", Toast.LENGTH_SHORT).show();
