@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,13 +22,14 @@ public class login extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_screen);
-        Button btnlogin;
+        Button btnlogin, btnshow;
         final EditText etEmail, etPass;
 
         etEmail = (EditText)findViewById(R.id.etEmail);
         etPass = (EditText)findViewById(R.id.etPass);
         btnlogin = (Button)findViewById(R.id.btnLogin);
-        if (btnlogin != null) {
+        btnshow = (Button)findViewById(R.id.btnShow);
+
             btnlogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -46,7 +49,17 @@ public class login extends AppCompatActivity {
                 }
             });
 
-        }
+        btnshow.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View v, MotionEvent motion){
+
+                switch(motion.getAction()){
+                    case MotionEvent.ACTION_DOWN: etPass.setInputType(InputType.TYPE_CLASS_TEXT); break;
+                    case MotionEvent.ACTION_UP: etPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD); break;
+                }
+                return true;
+            }
+
+        });
 
     }
 }
