@@ -51,10 +51,18 @@ public class login extends AppCompatActivity {
 
         btnshow.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View v, MotionEvent motion){
-
+                final int cursor = etPass.getSelectionStart();
                 switch(motion.getAction()){
-                    case MotionEvent.ACTION_DOWN: etPass.setInputType(InputType.TYPE_CLASS_TEXT); break;
-                    case MotionEvent.ACTION_UP: etPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD); break;
+                    case MotionEvent.ACTION_DOWN: {
+                        etPass.setInputType(InputType.TYPE_CLASS_TEXT);
+                        etPass.setSelection(cursor);
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        etPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                        etPass.setSelection(cursor);
+                        break;
+                    }
                 }
                 return true;
             }
