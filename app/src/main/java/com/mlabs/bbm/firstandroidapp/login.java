@@ -24,13 +24,25 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.login_screen);
         Button btnlogin, btnshow;
         final EditText etEmail, etPass;
+        final TextView lblSignUp;
 
-        etEmail = (EditText)findViewById(R.id.etEmail);
+        etEmail = (EditText)findViewById(R.id.etsignEmail);
         etPass = (EditText)findViewById(R.id.etPass);
         btnlogin = (Button)findViewById(R.id.btnLogin);
         btnshow = (Button)findViewById(R.id.btnShow);
+        lblSignUp = (TextView)findViewById((R.id.lblSignUp));
 
-            btnlogin.setOnClickListener(new View.OnClickListener() {
+
+        lblSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(login.this,signup.class );
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnlogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(Pattern.compile("([a-zA-Z0-9]+_?)+@[a-zA-Z0-9]+\\.com").matcher(etEmail.getText()).matches()){
