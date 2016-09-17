@@ -1,6 +1,7 @@
 package com.mlabs.bbm.firstandroidapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +26,8 @@ public class login extends AppCompatActivity {
         Button btnlogin, btnshow;
         final EditText etEmail, etPass;
         final TextView lblSignUp;
-
+        SQLiteDatabase mydatabase = openOrCreateDatabase("dbAccounts",MODE_PRIVATE,null);
+        final DBHelper mydb = new DBHelper(this) ;
         etEmail = (EditText)findViewById(R.id.etsignEmail);
         etPass = (EditText)findViewById(R.id.etPass);
         btnlogin = (Button)findViewById(R.id.btnLogin);
@@ -48,10 +50,12 @@ public class login extends AppCompatActivity {
                     if(Pattern.compile("([a-zA-Z0-9]+_?)+@[a-zA-Z0-9]+\\.com").matcher(etEmail.getText()).matches()){
                         if(!(etPass.length()== 0)){
                             if(etPass.length()>8){
-                                Intent intent = new Intent(login.this,MainActivity.class );
-                                startActivity(intent);
-                                //for disposing
-                                finish();
+                                if (mydb.validateUser(etEmail.getText().toString(), etPass.getText().toString())) {
+                                    Intent intent = new Intent(login.this, MainActivity.class);
+                                    startActivity(intent);
+                                    //for disposing
+                                    finish();
+                                }
                             } else Toast.makeText(getBaseContext(),"Password too short", Toast.LENGTH_SHORT).show();
                         }else Toast.makeText(getBaseContext(),"Password field is empty", Toast.LENGTH_SHORT).show();
                     }else Toast.makeText(getBaseContext(),"Invalid Email Address", Toast.LENGTH_SHORT).show();

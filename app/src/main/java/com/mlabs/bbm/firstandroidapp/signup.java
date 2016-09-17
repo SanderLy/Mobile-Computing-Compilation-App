@@ -23,7 +23,7 @@ public class signup extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
-        SQLiteDatabase mydatabase = openOrCreateDatabase("dbAccounts",MODE_PRIVATE,null);
+        final DBHelper mydb = new DBHelper(this) ;
         Button btnSignUp ;
         final EditText etsignEmail, etsignPass, etsignConPass;
 
@@ -41,7 +41,14 @@ public class signup extends AppCompatActivity{
                     if(!(etsignPass.length()== 0)){
                         if(etsignPass.length()>8){
                             if(strPass.equals(strConPass)){
-                                Toast.makeText(getBaseContext(),"You have succesfully registered!", Toast.LENGTH_SHORT).show();
+                                if(mydb.insertAccount(etsignEmail.getText().toString(), etsignPass.getText().toString()))
+                                {
+                                    Toast.makeText(getBaseContext(),"You have succesfully registered!", Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    Toast.makeText(getBaseContext(),"Already registered!", Toast.LENGTH_SHORT).show();
+                                }
                             }else Toast.makeText(getBaseContext(),"Password does not match", Toast.LENGTH_SHORT).show();
                         } else Toast.makeText(getBaseContext(),"Password too short", Toast.LENGTH_SHORT).show();
                     }else Toast.makeText(getBaseContext(),"Password field is empty", Toast.LENGTH_SHORT).show();
