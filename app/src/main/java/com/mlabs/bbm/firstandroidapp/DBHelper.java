@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -87,5 +88,26 @@ public class DBHelper extends SQLiteOpenHelper {
         return array_list;
     }
 
-    
+//    public boolean validateUser(String username, String password)
+//    {
+//        String selectQuery = "SELECT * FROM" + ACCOUNTS_TABLE_NAME + " WHERE " + ACCOUNTS_EMAIL + "=" + username;
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(selectQuery, null);
+//        //Move to first row
+//        cursor.moveToFirst();
+//        if (cursor.getCount() > 0)
+//        {
+//
+//        }
+//        cursor.close();
+//        db.close();
+//        //Log.d(TAG, "Fethcing user from SQLite" + user.toString());
+//        if (password.equals(user.get(password)))
+//        {
+//            return true;
+//        }
+//        else
+//            return false;
+//    }
+
 }
