@@ -1,6 +1,7 @@
 package com.mlabs.bbm.firstandroidapp;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class login extends AppCompatActivity {
         Button btnlogin, btnshow;
         final EditText etEmail, etPass;
         final TextView lblSignUp;
+        SQLiteDatabase mydatabase = openOrCreateDatabase("dbAccounts",MODE_PRIVATE,null);
 
         etEmail = (EditText)findViewById(R.id.etsignEmail);
         etPass = (EditText)findViewById(R.id.etPass);
