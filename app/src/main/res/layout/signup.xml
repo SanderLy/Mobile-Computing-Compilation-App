@@ -38,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etsignPass"
+        android:inputType="textPassword"
         android:layout_alignBottom="@+id/etPass"
         android:layout_alignRight="@+id/etsignEmail"
         android:layout_alignEnd="@+id/etsignEmail"
@@ -59,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etsignConPass"
+        android:inputType="textPassword"
         android:layout_alignBottom="@+id/textView2"
         android:layout_alignRight="@+id/etsignPass"
         android:layout_alignEnd="@+id/etsignPass"
@@ -73,4 +75,5 @@
         android:layout_below="@+id/etsignConPass"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp" />
+
 </RelativeLayout>
