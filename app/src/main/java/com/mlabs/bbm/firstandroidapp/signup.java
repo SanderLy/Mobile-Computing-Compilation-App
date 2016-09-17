@@ -35,10 +35,14 @@ public class signup extends AppCompatActivity{
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String strPass = etsignPass.getText().toString();
+                final String strConPass = etsignPass.getText().toString();
                 if(Pattern.compile("([a-zA-Z0-9]+_?)+@[a-zA-Z0-9]+\\.com").matcher(etsignEmail.getText()).matches()){
                     if(!(etsignPass.length()== 0)){
-                        if(etsignPass.length()>8 && etsignConPass.getText().equals(etsignEmail)){
-
+                        if(etsignPass.length()>8){
+                            if(strPass.equals(strConPass)){
+                                Toast.makeText(getBaseContext(),"You have succesfully registered!", Toast.LENGTH_SHORT).show();
+                            }else Toast.makeText(getBaseContext(),"Password does not match", Toast.LENGTH_SHORT).show();
                         } else Toast.makeText(getBaseContext(),"Password too short", Toast.LENGTH_SHORT).show();
                     }else Toast.makeText(getBaseContext(),"Password field is empty", Toast.LENGTH_SHORT).show();
                 }else Toast.makeText(getBaseContext(),"Invalid Email Address", Toast.LENGTH_SHORT).show();
