@@ -9,7 +9,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.regex.Pattern;
@@ -25,7 +24,7 @@ public class login extends AppCompatActivity {
         Button btnlogin, btnshow;
         final EditText etEmail, etPass;
 
-        etEmail = (EditText)findViewById(R.id.etEmail);
+        etEmail = (EditText)findViewById(R.id.etsignEmail);
         etPass = (EditText)findViewById(R.id.etPass);
         btnlogin = (Button)findViewById(R.id.btnLogin);
         btnshow = (Button)findViewById(R.id.btnShow);
