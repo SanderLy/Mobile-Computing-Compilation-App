@@ -40,7 +40,6 @@ public class login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(login.this,signup.class );
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -50,12 +49,12 @@ public class login extends AppCompatActivity {
                     if(Pattern.compile("([a-zA-Z0-9]+_?)+@[a-zA-Z0-9]+\\.com").matcher(etEmail.getText()).matches()){
                         if(!(etPass.length()== 0)){
                             if(etPass.length()>8){
-                                if (mydb.validateUser(etEmail.getText().toString(), etPass.getText().toString())) {
+                                if (mydb.validateUser(etEmail.getText().toString(), etPass.getText().toString())=="True") {
                                     Intent intent = new Intent(login.this, MainActivity.class);
                                     startActivity(intent);
                                     //for disposing
                                     finish();
-                                }
+                                }else Toast.makeText(getBaseContext(),"Incorrect email or password", Toast.LENGTH_SHORT).show();
                             } else Toast.makeText(getBaseContext(),"Password too short", Toast.LENGTH_SHORT).show();
                         }else Toast.makeText(getBaseContext(),"Password field is empty", Toast.LENGTH_SHORT).show();
                     }else Toast.makeText(getBaseContext(),"Invalid Email Address", Toast.LENGTH_SHORT).show();
