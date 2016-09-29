@@ -29,8 +29,7 @@ package com.mlabs.bbm.firstandroidapp;
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
         db.execSQL(
-                "create table accounts " +
-                        "(email text primary key, password text,date_created text)"
+                "create table accounts " +"(email text primary key,username text unique, password text,date_created text)"
         );
     }
 
