@@ -8,8 +8,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Email:"
         android:id="@+id/textView"
-        android:layout_marginTop="59dp"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/etsignPass"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -17,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etsignEmail"
+        android:singleLine="true"
         android:layout_alignBottom="@+id/textView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -29,15 +29,15 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Password"
         android:id="@+id/etPass"
-        android:layout_below="@+id/etsignEmail"
+        android:layout_above="@+id/etsignConPass"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="23dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etsignPass"
+        android:singleLine="true"
         android:inputType="textPassword"
         android:layout_alignBottom="@+id/etPass"
         android:layout_alignRight="@+id/etsignEmail"
@@ -51,8 +51,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Confirm Password"
         android:id="@+id/textView2"
-        android:layout_marginTop="27dp"
-        android:layout_below="@+id/etPass"
+        android:layout_above="@+id/etsignFirstName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -60,6 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/etsignConPass"
+        android:singleLine="true"
         android:inputType="textPassword"
         android:layout_alignBottom="@+id/textView2"
         android:layout_alignRight="@+id/etsignPass"
@@ -72,8 +72,70 @@
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:id="@+id/btnSignUp"
-        android:layout_below="@+id/etsignConPass"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_marginBottom="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Username:"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/btnSignUp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="45dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etsignUser"
+        android:singleLine="true"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Last Name:"
+        android:id="@+id/textView4"
+        android:layout_above="@+id/etsignUser"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etsignLastName"
+        android:singleLine="true"
+        android:layout_above="@+id/etsignUser"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_alignRight="@+id/etsignEmail"
+        android:layout_alignEnd="@+id/etsignEmail" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="First Name:"
+        android:id="@+id/textView5"
+        android:layout_above="@+id/etsignLastName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:id="@+id/etsignFirstName"
+        android:layout_above="@+id/etsignLastName"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_alignRight="@+id/etsignEmail"
+        android:layout_alignEnd="@+id/etsignEmail" />
 
 </RelativeLayout>

@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.regex.Pattern;
 
 /**
@@ -41,9 +43,14 @@ public class signup extends AppCompatActivity{
                     if(!(etsignPass.length()== 0)){
                         if(etsignPass.length()>8){
                             if(strPass.equals(strConPass)){
-                                if(mydb.insertAccount(etsignEmail.getText().toString(), etsignPass.getText().toString()))
+                                Calendar c = Calendar.getInstance();
+                                SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+                                String formattedDate = df.format(c.getTime());
+                                if(mydb.insertAccount(etsignEmail.getText().toString(), etsignPass.getText().toString(),formattedDate))
                                 {
                                     Toast.makeText(getBaseContext(),"You have succesfully registered!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(),"Created at: " + formattedDate, Toast.LENGTH_SHORT).show();
+
                                 }
                                 else
                                 {

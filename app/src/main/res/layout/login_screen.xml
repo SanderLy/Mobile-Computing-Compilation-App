@@ -13,7 +13,7 @@
         android:layout_marginTop="200dp"
         android:textColor="#E7E7E7"
         android:textColorHint="#E7E7E7"
-        android:hint="Email Address"/>
+        android:hint="Email Address/Username"/>
 
     <EditText
         android:layout_width="230dp"
