@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button btnTouch;
         btnTouch = (Button)findViewById(R.id.btnTouch);
+        //Toast.makeText(getBaseContext(),this.getIntent().getStringExtra("Username"), Toast.LENGTH_SHORT).show();
 
         btnTouch.setOnClickListener(new View.OnClickListener() {
             @Override

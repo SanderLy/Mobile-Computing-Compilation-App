@@ -27,11 +27,14 @@ public class signup extends AppCompatActivity{
         setContentView(R.layout.signup);
         final DBHelper mydb = new DBHelper(this) ;
         Button btnSignUp ;
-        final EditText etsignEmail, etsignPass, etsignConPass;
+        final EditText etsignEmail, etsignPass, etsignConPass, etsignUsernmae, etsignFname, etsignLname;
 
         etsignEmail = (EditText)findViewById(R.id.etsignEmail);
         etsignPass = (EditText)findViewById(R.id.etsignPass);
         etsignConPass = (EditText)findViewById(R.id.etsignConPass);
+        etsignUsernmae = (EditText)findViewById(R.id.etsignUser);
+        etsignFname = (EditText)findViewById(R.id.etsignFirstName);
+        etsignLname = (EditText)findViewById(R.id.etsignLastName);
         btnSignUp = (Button)findViewById(R.id.btnSignUp);
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -39,26 +42,36 @@ public class signup extends AppCompatActivity{
             public void onClick(View v) {
                 final String strPass = etsignPass.getText().toString();
                 final String strConPass = etsignPass.getText().toString();
-                if(Pattern.compile("([a-zA-Z0-9]+_?)+@[a-zA-Z0-9]+\\.com").matcher(etsignEmail.getText()).matches()){
-                    if(!(etsignPass.length()== 0)){
-                        if(etsignPass.length()>8){
-                            if(strPass.equals(strConPass)){
-                                Calendar c = Calendar.getInstance();
-                                SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-                                String formattedDate = df.format(c.getTime());
-                                if(mydb.insertAccount(etsignEmail.getText().toString(), etsignPass.getText().toString(),formattedDate))
-                                {
-                                    Toast.makeText(getBaseContext(),"You have succesfully registered!", Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(getBaseContext(),"Created at: " + formattedDate, Toast.LENGTH_SHORT).show();
 
-                                }
-                                else
-                                {
-                                    Toast.makeText(getBaseContext(),"Already registered!", Toast.LENGTH_SHORT).show();
-                                }
-                            }else Toast.makeText(getBaseContext(),"Password does not match", Toast.LENGTH_SHORT).show();
-                        } else Toast.makeText(getBaseContext(),"Password too short", Toast.LENGTH_SHORT).show();
-                    }else Toast.makeText(getBaseContext(),"Password field is empty", Toast.LENGTH_SHORT).show();
+                if(android.util.Patterns.EMAIL_ADDRESS.matcher(etsignEmail.getText().toString()).matches()){
+                    if(Pattern.compile("^([A-Z][a-z]+ ?)+$").matcher(etsignFname.getText()).matches()){
+                        if(Pattern.compile("^([A-Z][a-z]+ ?)+$").matcher(etsignLname.getText()).matches()){
+                            if(!(etsignPass.length()== 0)){
+                                if(etsignPass.length()>8){
+                                    if(strPass.equals(strConPass)){
+                                        Calendar c = Calendar.getInstance();
+                                        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+                                        String formattedDate = df.format(c.getTime());
+                                        String res = mydb.insertAccount(etsignEmail.getText().toString(), etsignPass.getText().toString(),etsignUsernmae.getText().toString(),etsignFname.getText().toString(),etsignLname.getText().toString(),formattedDate);
+                                        if(res=="True")
+                                        {
+                                            Toast.makeText(getBaseContext(),"You have succesfully registered!", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getBaseContext(),"Created at: " + formattedDate, Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(signup.this, login.class);
+                                            startActivity(intent);
+                                            finish();
+
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(getBaseContext(),res, Toast.LENGTH_SHORT).show();
+                                        }
+                                    }else Toast.makeText(getBaseContext(),"Password does not match", Toast.LENGTH_SHORT).show();
+                                } else Toast.makeText(getBaseContext(),"Password too short", Toast.LENGTH_SHORT).show();
+                            }else Toast.makeText(getBaseContext(),"Password field is empty", Toast.LENGTH_SHORT).show();
+                        }else Toast.makeText(getBaseContext(),"Invalid Last Name", Toast.LENGTH_SHORT).show();
+                    }else Toast.makeText(getBaseContext(),"Invalid First Name", Toast.LENGTH_SHORT).show();
+
                 }else Toast.makeText(getBaseContext(),"Invalid Email Address", Toast.LENGTH_SHORT).show();
 
 
