@@ -1,1 +1,1 @@
-# FirstAndroidApp_AfternoonClass
+Mobile-Computing-Compilation-App
